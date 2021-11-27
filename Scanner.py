@@ -19,21 +19,22 @@ print("You have selected option: ", resp)
 resp=int(resp)
 if resp==1:
     print("nmap version: ", scanner.nmap_version())
-    scanner.scan(ip_addr,'1-1024','-v -sS') #port range to scan, the last part is the scan type
+    scanner.scan(ip_addr,'1-1024',' -sS') #port range to scan, the last part is the scan type
     print(scanner.scaninfo())
     print("Scanner Status: ",scanner[ip_addr].state())
     print(scanner[ip_addr].all_protocols())
     print("Open Ports: ",scanner[ip_addr]['tcp'].keys())
 elif resp==2:
     print("nmap version: ", scanner.nmap_version())
-    scanner.scan(ip_addr,'1-1024','-v -sU') #port range to scan, the last part is the scan type
+    scanner.scan(ip_addr,'1-1024',' -sU') #port range to scan, the last part is the scan type
+    scanner.command_line()
     print(scanner.scaninfo())
     print("Scanner Status: ",scanner[ip_addr].state())
     print(scanner[ip_addr].all_protocols())
     print("Open Ports: ",scanner[ip_addr]['tcp'].keys())
 elif resp==3:
     print("nmap version: ", scanner.nmap_version())
-    scanner.scan(ip_addr,'1-1024','-v -sS -sV -sC -A -O') #port range to scan, the last part is the scan type
+    scanner.scan(ip_addr,'1-1024',' -sS -sV -sC -A -O') #port range to scan, the last part is the scan type
     print(scanner.scaninfo())
     print("Scanner Status: ",scanner[ip_addr].state())
     print(scanner[ip_addr].all_protocols())
